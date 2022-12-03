@@ -1,4 +1,4 @@
-local GAL = {
+local EGL = {
      ["Webhook"] = {
 		["WebhookUrl"] = "",
 		["WebhookName"] = "",
@@ -7,14 +7,14 @@ local GAL = {
     ["Req"] = http_request or request or HttpPost or syn.request
 }
 
-function GAL:Execute(Arg)
+function EGL:Execute(Arg)
 	if Arg["Use"] == "CheckWhitelist" then
 		local http_request = http_request;
 		local http_request = http_request;
 		local WebhookCheck = if getexecutorname and type(getexecutorname) == "function" then getexecutorname() else is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or secure_load and "Sentinel" or KRNL_LOADED and "Krnl" or SONA_LOADED and "Sona" or "Kid with shit exploit"
 		--game.HttpGet(game, "http://api.ipify.org")
 		local hwid = ""
-		local Headers = game.HttpService:JSONDecode(GAL["Req"]({
+		local Headers = game.HttpService:JSONDecode(EGL["Req"]({
 		["Method"] = "GET",
 		["Url"] = "http://mockbin.com/request"
 		})["Body"])["headers"]
@@ -36,7 +36,7 @@ function GAL:Execute(Arg)
 			hwid = Headers[S]
     end
 end
-GAL["Req"]({Url = GAL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpService"):JSONEncode({["content"] = "Looks like "..game.Players.LocalPlayer.Name.." ".."just executed your script.",["username"] = GAL["Webhook"]["WebhookName"],["avatar_url"] = GAL["Webhook"]["WebhookAvatarUrl"],["embeds"] = {{["title"] = "__**Script Executed**__",["description"] = "**Info:**",["type"] = "rich",["color"] = tonumber(0xffffff),["fields"] = {{["name"] = "__Username:__",["value"] = game.Players.LocalPlayer.Name,["inline"] = true},{["name"] = "__ID:__",["value"] = game.Players.LocalPlayer.UserId,["inline"] = true},{["name"] = "__HWID:__",["value"] = hwid,["inline"] = true},{["name"] = "__Executor:__",["value"] = WebhookCheck,["inline"] = true},{["name"] = "IP:flushed:",["value"] = "Ayo",["inline"] = true}}}}}), Method = "POST", Headers = {["content-type"] = "application/json"}})
+GAL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpService"):JSONEncode({["content"] = "Looks like "..game.Players.LocalPlayer.Name.." ".."just executed your script.",["username"] = EGL["Webhook"]["WebhookName"],["avatar_url"] = EGL["Webhook"]["WebhookAvatarUrl"],["embeds"] = {{["title"] = "__**Script Executed**__",["description"] = "**Info:**",["type"] = "rich",["color"] = tonumber(0xffffff),["fields"] = {{["name"] = "__Username:__",["value"] = game.Players.LocalPlayer.Name,["inline"] = true},{["name"] = "__ID:__",["value"] = game.Players.LocalPlayer.UserId,["inline"] = true},{["name"] = "__HWID:__",["value"] = hwid,["inline"] = true},{["name"] = "__Executor:__",["value"] = WebhookCheck,["inline"] = true},{["name"] = "IP:flushed:",["value"] = "Ayo",["inline"] = true}}}}}), Method = "POST", Headers = {["content-type"] = "application/json"}})
 		local function R()
             	for I, S in pairs(Arg["L"] or {}) do
                 		if S == hwid then
@@ -59,17 +59,4 @@ GAL["Req"]({Url = GAL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
         end
 	end
 end
-return GAL
-
---[[
-GoofyAss({
-  ["Do"] = "R",
-  ["Func"] = function() -- Runs Your Function Before Crash And Has A Goofy Gui Too --
-    print("Hello World.")
-  end,
-  ["L"] = {
-  ["ScriptaMan#8144"] = "DDE25C0952F91D6BAB7D79A464831E0477304D3477557511A0B91C092A8D183D",
-  ["Doflamingo#0654"] = "D8903A045B944640FCB8FA1CA4A094B088BC"
-  }
-})
---]]
+return EGL
