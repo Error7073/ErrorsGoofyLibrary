@@ -13,8 +13,8 @@ W:Exec({
  ["Use"] = "Function you want"
 })
 ```
-## This is how you need to use the whitelist with webhook logger
-### Note: If you don't want to use webhook logger look the next function
+## This is how you need to use the whitelist with Discord webhook logger
+### Note: If you don't want to use Discord webhook logger look the next function
 ```lua
 EGL["Webhook"]["WebhookUrl"] = "Put your webhook url here."
 EGL["Webhook"]["WebhookName"] = "Name what webhook will have."
