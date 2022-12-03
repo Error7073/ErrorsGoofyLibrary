@@ -3,7 +3,6 @@ local GAL = {
 		["WebhookUrl"] = "",
 		["WebhookName"] = "",
 		["WebhookAvatarUrl"] = ""
-		}
 	},
     ["Req"] = http_request or request or HttpPost or syn.request
 }
