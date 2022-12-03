@@ -7,7 +7,8 @@
 ```lua
 local EGL = loadstring(game:HttpGet("https://raw.githubusercontent.com/Error7073/ErrorsGoofyLibrary/main/EGL.lua"))()
 ```
-## This is how to use the whitelist with webhook logger
+## This is how you need to use the whitelist with webhook logger
+### Note: If you don't want to use webhook logger look the next function
 ```lua
 EGL["Webhook"]["WebhookUrl"] = "Put your webhook url here."
 EGL["Webhook"]["WebhookName"] = "Name what webhook will have."
