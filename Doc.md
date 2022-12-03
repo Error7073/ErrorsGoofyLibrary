@@ -1,6 +1,6 @@
 # Error's Goofy Library
 
-Hello fellow skid/scripter. This is an remake of Mob#8610 AEL - ABDExploitingLibrary, I use this mainly for whitelist but I will add more features soon! Thanks if you liked using it.
+## Hello fellow skid/scripter. This is an remake of Mob#8610 AEL - ABDExploitingLibrary, I use this mainly for whitelist but I will add more features soon! Thanks if you liked using it.
 ## Loadstring of EGL.
 ### Note: You can name the local however you want just change the EGL:Exec to name of the local.
 ```lua
