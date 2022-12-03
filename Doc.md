@@ -1,7 +1,28 @@
 # Error's Goofy Library
 
 Hello fellow skid/scripter. This is an remake of Mob#8610 AEL - ABDExploitingLibrary, I use this mainly for whitelist but I will add more features soon! Thanks if you liked using it.
-## Loadstring of EAL
+## Loadstring of EGL you can name the local how you want.
 ```lua
-local Current = loadstring(game:HttpGet("https://raw.githubusercontent.com/theplantman/ABDExploitLibrary/main/Library%20Versions/V3.lua"))()
+local EGL = loadstring(game:HttpGet("https://raw.githubusercontent.com/Error7073/ErrorsGoofyLibrary/main/EGL.lua"))()
+```
+## This is how to use the whitelist with webhook logger.
+```lua
+local EGL = loadstring(game:HttpGet('https://raw.githubusercontent.com/Error7073/ErrorsGoofyLibrary/main/EGL.lua'))()
+EGL["Webhook"]["WebhookUrl"] = "Put your webhook url here."
+EGL["Webhook"]["WebhookName"] = "Name what webhook will have."
+EGL["Webhook"]["WebhookAvatarUrl"] = "Url of avatar what webhook will have basically Imgur, Pinterest etc."
+
+EGL:Exec({
+  ["Use"] = "CheckWhitelist",
+  ["Func"] = function() -- Runs Function Before Crash --
+    print("Hello World.")
+  end,
+  ["L"] = {
+  ["Any name here"] = "Put the hwid in here" -- Don't forget if you are adding more than one whitelist you need to put , after the "
+  }
+})
+```
+## If you don't want to use webhook logger just to get HWID you can use other function
+```lua
+working on it
 ```
