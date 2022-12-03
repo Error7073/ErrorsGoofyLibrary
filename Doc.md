@@ -1,13 +1,13 @@
 # Error's Goofy Library
 
 ## Hello fellow skid/scripter. This is an remake of Mob#8610 AEL - ABDExploitingLibrary, I use this mainly for whitelist but I will add more features soon! Thanks if you liked using it.
-### Link for the official library - https://github.com/theplantman/ABDExploitLibrary.
-## Loadstring of EGL.
+### Link for the official library - https://github.com/theplantman/ABDExploitLibrary
+## Loadstring of EGL
 ### Note: You can name the local however you want just change the EGL:Exec to name of the local.
 ```lua
 local EGL = loadstring(game:HttpGet("https://raw.githubusercontent.com/Error7073/ErrorsGoofyLibrary/main/EGL.lua"))()
 ```
-## This is how to use the whitelist with webhook logger.
+## This is how to use the whitelist with webhook logger
 ```lua
 EGL["Webhook"]["WebhookUrl"] = "Put your webhook url here."
 EGL["Webhook"]["WebhookName"] = "Name what webhook will have."
@@ -23,8 +23,8 @@ EGL:Exec({
   }
 })
 ```
-# If you don't want to use webhook logger just to get HWID you can use other function.
-## Note: it gets your HWID and copies it to clipboard.
+# If you don't want to use webhook logger just to get HWID you can use other function
+## Note: it gets your HWID and copies it to clipboard
 ```lua
 EGL:Exec({
   ["Use"] = "GetHWID"]
