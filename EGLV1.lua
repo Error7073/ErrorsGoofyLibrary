@@ -7,7 +7,7 @@ local EGL = {
     ["Req"] = http_request or request or HttpPost or syn.request
 }
 
-function EGL:Execute(Arg)
+function EGL:Exec(Arg)
 	if Arg["Use"] == "CheckWhitelist" then
 		local http_request = http_request;
 		local http_request = http_request;
