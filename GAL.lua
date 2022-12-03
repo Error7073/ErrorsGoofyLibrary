@@ -8,7 +8,7 @@ local GAL = {
 }
 
 function GAL:Execute(Arg)
-	if Arg["Do"] == "CheckWhitelist" then
+	if Arg["Use"] == "CheckWhitelist" then
 		local http_request = http_request;
 		local http_request = http_request;
 		local WebhookCheck = if getexecutorname and type(getexecutorname) == "function" then getexecutorname() else is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or secure_load and "Sentinel" or KRNL_LOADED and "Krnl" or SONA_LOADED and "Sona" or "Kid with shit exploit"
