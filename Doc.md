@@ -7,7 +7,6 @@ local EGL = loadstring(game:HttpGet("https://raw.githubusercontent.com/Error7073
 ```
 ## This is how to use the whitelist with webhook logger.
 ```lua
-local EGL = loadstring(game:HttpGet('https://raw.githubusercontent.com/Error7073/ErrorsGoofyLibrary/main/EGL.lua'))()
 EGL["Webhook"]["WebhookUrl"] = "Put your webhook url here."
 EGL["Webhook"]["WebhookName"] = "Name what webhook will have."
 EGL["Webhook"]["WebhookAvatarUrl"] = "Url of avatar what webhook will have basically Imgur, Pinterest etc."
@@ -22,7 +21,10 @@ EGL:Exec({
   }
 })
 ```
-## If you don't want to use webhook logger just to get HWID you can use other function
+# If you don't want to use webhook logger just to get HWID you can use other function.
+## Note: it gets your HWID and copies it to clipboard.
 ```lua
-working on it
+EGL:Exec({
+  ["Use"] = "GetHWID"]
+})
 ```
