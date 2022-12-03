@@ -23,7 +23,7 @@ EGL["Webhook"]["WebhookAvatarUrl"] = "Url of avatar what webhook will have basic
 EGL:Exec({
   ["Use"] = "CheckWhitelist",
   ["Func"] = function() -- Runs Function Before Crash --
-    print("Hello World.")
+    print("Gtfo you're not whitelisted.")
   end,
   ["L"] = {
   ["Any name here"] = "Put the HWID in here" -- Don't forget if you are adding more than one whitelist you need to put , after the HWID
