@@ -6,7 +6,7 @@
 ```lua
 local EGL = loadstring(game:HttpGet("https://raw.githubusercontent.com/Error7073/ErrorsGoofyLibrary/main/EGL.lua"))()
 ```
-### Note: You can name the local however you want just change the EGL:Exec to name of the local. Example:
+### Note: You can name the local however you want just change the EGL to name of the local. Example:
 ```lua
 local W = loadstring(game:HttpGet("https://raw.githubusercontent.com/Error7073/ErrorsGoofyLibrary/main/EGL.lua"))()
 W:Exec({
