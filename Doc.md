@@ -3,15 +3,15 @@
 ## Hello fellow skid/scripter. This is an remake of Mob#8610 AEL - ABDExploitingLibrary, I use this mainly for whitelist but I will add more features soon! Thanks if you liked using it.
 ### Link for the official library - https://github.com/theplantman/ABDExploitLibrary
 ## Loadstring of EGL
+```lua
+local EGL = loadstring(game:HttpGet("https://raw.githubusercontent.com/Error7073/ErrorsGoofyLibrary/main/EGL.lua"))()
+```
 ### Note: You can name the local however you want just change the EGL:Exec to name of the local. Example:
 ```lua
 local W = loadstring(game:HttpGet("https://raw.githubusercontent.com/Error7073/ErrorsGoofyLibrary/main/EGL.lua"))()
 W:Exec({
  ["Use"] = "Function you want"
 })
-```
-```lua
-local EGL = loadstring(game:HttpGet("https://raw.githubusercontent.com/Error7073/ErrorsGoofyLibrary/main/EGL.lua"))()
 ```
 ## This is how you need to use the whitelist with webhook logger
 ### Note: If you don't want to use webhook logger look the next function
