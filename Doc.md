@@ -30,8 +30,8 @@ EGL:Exec({
   }
 })
 ```
-# If you don't want to use webhook logger just to get HWID you can use other function
-## Note: it gets your HWID and copies it to clipboard
+## If you don't want to use webhook logger just to get HWID you can use other function
+### Note: it gets your HWID and copies it to clipboard
 ```lua
 EGL:Exec({
   ["Use"] = "GetHWID"]
