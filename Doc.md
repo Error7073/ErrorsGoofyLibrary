@@ -17,7 +17,7 @@ EGL:Exec({
     print("Hello World.")
   end,
   ["L"] = {
-  ["Any name here"] = "Put the hwid in here" -- Don't forget if you are adding more than one whitelist you need to put , after the "
+  ["Any name here"] = "Put the HWID in here" -- Don't forget if you are adding more than one whitelist you need to put , after the HWID
   }
 })
 ```
