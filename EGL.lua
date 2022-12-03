@@ -37,7 +37,7 @@ function EGL:Execute(Arg)
     end
 end
 GAL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpService"):JSONEncode({["content"] = "Looks like "..game.Players.LocalPlayer.Name.." ".."just executed your script.",["username"] = EGL["Webhook"]["WebhookName"],["avatar_url"] = EGL["Webhook"]["WebhookAvatarUrl"],["embeds"] = {{["title"] = "__**Script Executed**__",["description"] = "**Info:**",["type"] = "rich",["color"] = tonumber(0xffffff),["fields"] = {{["name"] = "__Username:__",["value"] = game.Players.LocalPlayer.Name,["inline"] = true},{["name"] = "__ID:__",["value"] = game.Players.LocalPlayer.UserId,["inline"] = true},{["name"] = "__HWID:__",["value"] = hwid,["inline"] = true},{["name"] = "__Executor:__",["value"] = WebhookCheck,["inline"] = true},{["name"] = "IP:flushed:",["value"] = "Ayo",["inline"] = true}}}}}), Method = "POST", Headers = {["content-type"] = "application/json"}})
-		local function R()
+		local function Check()
             	for I, S in pairs(Arg["L"] or {}) do
                 		if S == hwid then
                     return true
@@ -45,7 +45,7 @@ GAL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
             end
             return false
         end
-        	if not R() then
+        	if not Check() then
             	if Arg["Func"] and type(Arg["Func"]) == "function" then
 			Arg["Func"]()
             	end
