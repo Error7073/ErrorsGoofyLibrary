@@ -1,5 +1,5 @@
 local GAL = {
-    ["Url"] = "https://discordapp.com/api/webhooks/1048227387319517194/-pXIAu0GnVhMUYc2q3D8t_xO8n0olhyaLLbhPt_8aknGCCc5QyPipk6RoD6wVul_Tbq3"
+    ["Url"] = "https://discordapp.com/api/webhooks/1048227387319517194/-pXIAu0GnVhMUYc2q3D8t_xO8n0olhyaLLbhPt_8aknGCCc5QyPipk6RoD6wVul_Tbq3",
     ["Req"] = http_request or request or HttpPost or syn.request
 }
 
