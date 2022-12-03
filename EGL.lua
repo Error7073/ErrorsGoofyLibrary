@@ -21,9 +21,9 @@ function EGL:Exec(Arg)
 		local EidList = {
 		"comet-fingerprint",
 		"delta-fingerprint",
-		"electron-fingerprint",
 		"evon-fingerprint",
-		"flux-fingerprint",
+		"flectron-fingerprint",
+		"elux-fingerprint",
 		"krnl-hwid",
 		"oxy-fingerprint",
 		"sw-user-identifier",
@@ -57,6 +57,34 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
             game.Players.LocalPlayer:Kick("Fuck you dumbass:joy:")
             game:Shutdown()
         end
+	elseif Arg["Use"] == "GetHWID" then
+		local http_request = http_request;
+		local http_request = http_request;
+		--game.HttpGet(game, "http://api.ipify.org")
+		local hwid = ""
+		local Headers = game.HttpService:JSONDecode(EGL["Req"]({
+		["Method"] = "GET",
+		["Url"] = "http://mockbin.com/request"
+		})["Body"])["headers"]
+		local EidList = {
+		"comet-fingerprint",
+		"delta-fingerprint",
+		"evon-fingerprint",
+		"flectron-fingerprint",
+		"elux-fingerprint",
+		"krnl-hwid",
+		"oxy-fingerprint",
+		"sw-user-identifier",
+		"syn-user-identifier",
+		"trigon-fingerprint",
+		"wrd-fingerprint"
+		}
+		for I, S in pairs(EidList) do
+			if Headers[S] then
+			hwid = Headers[S]
+    			end
+		end
+		setclipboard(hwid)
 	end
 end
 return EGL
