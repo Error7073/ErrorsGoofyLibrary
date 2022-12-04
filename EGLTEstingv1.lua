@@ -137,10 +137,8 @@ setclipboard(hwid)
             end
         end
 	end
-if Arg["GodmodeLoop"] and type(Arg["GodmodeLoop"]) == "true" then
         game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
             wait(2)
             game.ReplicatedStorage.BurnDamage:FireServer(chr.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
         end)
-	end
 return EGL
