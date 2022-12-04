@@ -94,7 +94,7 @@ elseif Arg["Use"] == "Godmode" then
         game.ReplicatedStorage.BurnDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
 			game.RunService.Stepped:Connect(function()
                 if EGL["GodMode"]["AntiAnchor"] then
-				for Index, Value in pairs(game.Player.LocalPlayer.Character:GetDescendants()) do
+				for Index, Value in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
 					if Value:IsA("Part") or Value:IsA("BasePart") or Value:IsA("MeshPart") then
 						if Value.Anchored == true then
 							game.ReplicatedStorage.Anchor:FireServer(Value, false)
