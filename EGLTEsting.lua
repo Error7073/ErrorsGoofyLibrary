@@ -90,32 +90,38 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
     end
 end
 setclipboard(hwid)
-	    elseif Arg["Use"] == "Godmode" and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+	    elseif Arg["Use"] == "Godmode" then
         game.ReplicatedStorage.BurnDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
 			game.RunService.Stepped:Connect(function()
-            if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
                 if EGL["GodMode"]["AntiAnchor"] then
-                    for Index, Part in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                        if Part.ClassName == "Part" and Part.Anchored == true then
-                            game.ReplicatedStorage.Anchor:FireServer(Part, false)
-                        end
+				for Index, Value in pairs(game.Player.LocalPlayer.Character:GetDescendants()) do
+					if Value:IsA("Part") or Value:IsA("BasePart") or Value:IsA("MeshPart") then
+						if Value.Anchored == true then
+							game.ReplicatedStorage.Anchor:FireServer(Value, false)
+						end
                     end
                 end
                 if EGL["GodMode"]["AntiFling"] then
-                    for Index, BodyMover in pairs(game.Players.LocalPlayer.Character.HumanoidRootPart:GetChildren()) do
-                        if BodyMover.ClassName:match("Body") then
-                            BodyMover:Destroy()
-                        end
+					for Index, Value in pairs(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):GetChildren())do
+						if Value:IsA("BodyVelocity") or Value:IsA("BodyPosition") or Value:IsA("BodyGyro") then
+							Value:Destroy()
+						end
+					end
+				end
+					for Index, Value in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+						if Value:IsA("Part") or Value:IsA("BasePart") or Value:IsA("MeshPart") then
+							if Value.CanCollide == true then
+								Value.CanCollide = false
+						end
                     end
                 end
 			end
-                if EGL["GodMode"]["AntiKnock"] then
-                    if game.Players.LocalPlayer.Character.Humanoid.PlatformStand == true then
-                        game.ReplicatedStorage.GetUp:FireServer()
-                        game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(3, true)
-                        game.Players.LocalPlayer.Character.Humanoid.AutoRotate = true
-                        game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
-                    end
+			if EGL["GodMode"]["AntiKnock"] then
+				if game.Players.LocalPlayer.Character.Humanoid.PlatformStand == true then
+					game.ReplicatedStorage.GetUp:FireServer()
+					game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(3,true)
+					game.Players.LocalPlayer.Character.Humanoid.AutoRotate=true
+					end
                 end
             end)
         end
@@ -130,11 +136,11 @@ setclipboard(hwid)
                 end)
             end
         end
+	end
 if Arg["GodmodeLoop"] and type(Arg["GodmodeLoop"]) == "true" then
         game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
             wait(2)
             game.ReplicatedStorage.BurnDamage:FireServer(chr.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
         end)
-	end
 	end
 return EGL
