@@ -141,9 +141,14 @@ elseif Arg["Use"] == "Godmode" then
 	if Arg["RespawnGodmode"] == "true" then
         game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
             wait(2)
-            chr["Right Arm"]:Destroy()
             game.ReplicatedStorage.BurnDamage:FireServer(chr.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
         end)
 	end
 end
+	if Arg["RespawnDestroyArm"] == "true" then
+		game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
+		wait(2)
+		chr["Right Arm"]:Destroy()
+	end)
+end	
 return EGL
