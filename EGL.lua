@@ -91,6 +91,7 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
     setclipboard(hwid)
 end
 elseif Arg["Use"] == "Godmode" then
+		game.Players.LocalPlayer.Character["Right Arm"]:Destroy()
         game.ReplicatedStorage.BurnDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
 		if Arg["AntiFling"] == "true" then
 		game.RunService.Stepped:Connect(function()
@@ -140,6 +141,7 @@ elseif Arg["Use"] == "Godmode" then
 	if Arg["RespawnGodmode"] == "true" then
         game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
             wait(2)
+            chr["Right Arm"]:Destroy()
             game.ReplicatedStorage.BurnDamage:FireServer(chr.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
         end)
 	end
