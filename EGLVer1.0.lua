@@ -109,6 +109,7 @@ setclipboard(hwid)
                         end
                     end
                 end
+			end
                 if EGL["GodMode"]["AntiKnock"] then
                     if game.Players.LocalPlayer.Character.Humanoid.PlatformStand == true then
                         game.ReplicatedStorage.GetUp:FireServer()
@@ -117,8 +118,8 @@ setclipboard(hwid)
                         game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
                     end
                 end
-            end
-        end)
+            end)
+        end
 	end
         for Index, Instance in pairs(game.Lighting:GetChildren()) do
             if Instance.ClassName == "BoolValue" then
@@ -136,7 +137,6 @@ setclipboard(hwid)
             game.ReplicatedStorage.BurnDamage:FireServer(chr.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
         end)
 	end
-end
 end
 end
 return EGL
