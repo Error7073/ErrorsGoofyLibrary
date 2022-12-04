@@ -62,10 +62,10 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
             game.Players.LocalPlayer:Kick("Fuck you dumbass:joy:")
             game:Shutdown()
 		end
-elseif Arg["Use"] == "Godmode" and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+	elseif Arg["Use"] == "Godmode" and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 	game.ReplicatedStorage.Block:FireServer(true)
 	game.ReplicatedStorage.BurnDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, CFrame.new(0, -50, 0), 0 * math.huge, 0, Vector3.new(0, 0, 0), "rbxassetid://241837157", 0, Color3.new(255, 255, 255), "rbxassetid://260430079", 0, 0)
-	if Arg["AntiFling"] == true then
+	if Arg["AntiFling"] and type(Arg["AntiFling"]) == "true" then
 	task.spawn(function()
 	if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 		while game.RunService.Stepped:Wait() do
@@ -114,13 +114,13 @@ for index, Value in pairs(game.Lighting:GetChildren()) do
         end)
 	end
 end
-if Arg["GodModeLoop"] == "true" then
-game.Players.LocalPlayer.CharacterAdded:Connect(function(Character)
+if Arg["GodmodeLoop"] and type(Arg["GodmodeLoop"]) == "true" then
+	game.Players.LocalPlayer.CharacterAdded:Connect(function(Character)
 	wait(2)
 	game.ReplicatedStorage.BurnDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, CFrame.new(0, -50, 0), 0 * math.huge, 0, Vector3.new(0, 0, 0), "rbxassetid://241837157", 0, Color3.new(255, 255, 255), "rbxassetid://260430079", 0, 0)
 	end)
 end
-elseif Arg["Use"] == "GetHWID" then
+	elseif Arg["Use"] == "GetHWID" then
 		local http_request = http_request;
 		local http_request = http_request;
 		local WebhookCheck = if getexecutorname and type(getexecutorname) == "function" then getexecutorname() else is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or secure_load and "Sentinel" or KRNL_LOADED and "Krnl" or SONA_LOADED and "Sona" or "Kid with shit exploit"
