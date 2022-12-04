@@ -62,12 +62,11 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
             game.Players.LocalPlayer:Kick("Fuck you dumbass:joy:")
             game:Shutdown()
 		end
-	elseif Arg["Use"] == "Godmode" and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+	elseif Arg["Use"] == "Godmode" then
 	game.ReplicatedStorage.Block:FireServer(true)
 	game.ReplicatedStorage.BurnDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, CFrame.new(0, -50, 0), 0 * math.huge, 0, Vector3.new(0, 0, 0), "rbxassetid://241837157", 0, Color3.new(255, 255, 255), "rbxassetid://260430079", 0, 0)
 	if Arg["AntiFling"] and type(Arg["AntiFling"]) == "true" then
 	task.spawn(function()
-	if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 		while game.RunService.Stepped:Wait() do
 			if EGL["GodMode"]["AntiAnchor"] then
 				for Index, Value in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
@@ -102,8 +101,8 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
 				end
 			end
 		end
-    end
-end)
+    end)
+end
 for index, Value in pairs(game.Lighting:GetChildren()) do
     if Value:IsA("BoolValue") then
         Value.Changed:Connect(function()
@@ -150,6 +149,5 @@ end
 		end
 		setclipboard(hwid)
 	end
-end
 end
 return EGL
