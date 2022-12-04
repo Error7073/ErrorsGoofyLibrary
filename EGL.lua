@@ -4,6 +4,11 @@ local EGL = {
 		["WebhookName"] = "",
 		["WebhookAvatarUrl"] = ""
 	},
+    ["GodMode"] = {
+		["AntiAnchor"] = true,
+		["AntiFling"] = true,
+		["AntiKnock"] = true
+	    },
     ["Req"] = http_request or request or HttpPost or syn.request
 }
 
@@ -60,7 +65,6 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
 	elseif Arg["Use"] == "GetHWID" then
 		local http_request = http_request;
 		local http_request = http_request;
-		local WebhookCheck = if getexecutorname and type(getexecutorname) == "function" then getexecutorname() else is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or secure_load and "Sentinel" or KRNL_LOADED and "Krnl" or SONA_LOADED and "Sona" or "Kid with shit exploit"
 		--game.HttpGet(game, "http://api.ipify.org")
 		local hwid = ""
 		local Headers = game.HttpService:JSONDecode(EGL["Req"]({
@@ -83,9 +87,61 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
 		for I, S in pairs(EidList) do
 			if Headers[S] then
 			hwid = Headers[S]
+    end
+    setclipboard(hwid)
+end
+elseif Arg["Use"] == "Godmode" then
+        game.ReplicatedStorage.BurnDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
+		if Arg["AntiFling"] == "true" then
+		game.RunService.Stepped:Connect(function()
+                if EGL["GodMode"]["AntiAnchor"] then
+				for Index, Value in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+					if Value:IsA("Part") or Value:IsA("BasePart") or Value:IsA("MeshPart") then
+						if Value.Anchored == true then
+							game.ReplicatedStorage.Anchor:FireServer(Value, false)
+						end
+                    end
+                end
+                if EGL["GodMode"]["AntiFling"] then
+					for Index, Value in pairs(game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):GetChildren())do
+						if Value:IsA("BodyVelocity") or Value:IsA("BodyPosition") or Value:IsA("BodyGyro") then
+							Value:Destroy()
+						end
+					end
+				end
 			end
+					for Index, Value in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+						if Value:IsA("Part") or Value:IsA("BasePart") or Value:IsA("MeshPart") then
+							if Value.CanCollide == true then
+								Value.CanCollide = false
+						end
+                    end
+                end
+			end)
+			if EGL["GodMode"]["AntiKnock"] then
+				if game.Players.LocalPlayer.Character.Humanoid.PlatformStand == true then
+					game.ReplicatedStorage.GetUp:FireServer()
+					game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled(3,true)
+					game.Players.LocalPlayer.Character.Humanoid.AutoRotate=true
+					end
+                end
+            end
 		end
-		setclipboard(hwid)
+        for Index, Instance in pairs(game.Lighting:GetChildren()) do
+            if Instance.ClassName == "BoolValue" then
+                Instance.Changed:Connect(function()
+                    if Instance.Value == true then
+                        game.ReplicatedStorage.RTZEffect:FireServer(true)
+                        Instance.Value = false
+                    end
+                end)
+            end
+		end
+	if Arg["GodmodeLoop"] == "true" then
+        game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
+            wait(2)
+            game.ReplicatedStorage.BurnDamage:FireServer(chr.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
+        end)
 	end
 end
 return EGL
