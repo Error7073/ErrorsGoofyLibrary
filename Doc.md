@@ -34,6 +34,6 @@ EGL:Exec({
 ### Note: it gets your HWID and copies it to clipboard
 ```lua
 EGL:Exec({
-  ["Use"] = "GetHWID"]
+  ["Use"] = "GetHWID"
 })
 ```
