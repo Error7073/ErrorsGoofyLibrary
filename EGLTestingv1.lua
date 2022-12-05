@@ -136,17 +136,17 @@ elseif Arg["Use"] == "Godmode" then
                 end)
             end
 		end
-	if Arg["RespawnFunc"] and type(Arg["RespawnFunc"]) == "function" then
-		Arg["RespawnFunc"]()
-		game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
-		wait(2)
-		Arg["RespawnFunc"]()
-	end)
 	if Arg["RespawnGodmode"] == "true" then
         game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
             wait(2)
             game.ReplicatedStorage.BurnDamage:FireServer(chr.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
         end)
-	end
+end
+if Arg["RespawnFunc"] and type(Arg["RespawnFunc"]) == "function" then
+	Arg["RespawnFunc"]()
+	game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
+	wait(2)
+	Arg["RespawnFunc"]()
+	end)
 end
 return EGL
