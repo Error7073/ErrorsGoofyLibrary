@@ -92,7 +92,6 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
 end
 elseif Arg["Use"] == "Godmode" then
         game.ReplicatedStorage.BurnDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
-		if Arg["AntiFling"] == "true" then
 		game.RunService.Stepped:Connect(function()
                 if EGL["GodMode"]["AntiAnchor"] then
 				for Index, Value in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
@@ -109,7 +108,6 @@ elseif Arg["Use"] == "Godmode" then
 						end
 					end
 				end
-			end
 					for Index, Value in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
 						if Value:IsA("Part") or Value:IsA("BasePart") or Value:IsA("MeshPart") then
 							if Value.CanCollide == true then
@@ -117,7 +115,7 @@ elseif Arg["Use"] == "Godmode" then
 						end
                     end
                 end
-			end)
+			end
 			if EGL["GodMode"]["AntiKnock"] then
 				if game.Players.LocalPlayer.Character.Humanoid.PlatformStand == true then
 					game.ReplicatedStorage.GetUp:FireServer()
@@ -125,7 +123,7 @@ elseif Arg["Use"] == "Godmode" then
 					game.Players.LocalPlayer.Character.Humanoid.AutoRotate=true
 					end
                 end
-            end
+            end)
 		end
         for Index, Instance in pairs(game.Lighting:GetChildren()) do
             if Instance.ClassName == "BoolValue" then
@@ -142,13 +140,13 @@ elseif Arg["Use"] == "Godmode" then
             wait(2)
             game.ReplicatedStorage.BurnDamage:FireServer(chr.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
         end)
-	end
-	if Arg["RespawnDestroyArm"] == "true" then
-		game.Players.LocalPlayer.Character["Right Arm"]:Destroy()
-		game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
-		wait(2)
-		chr["Right Arm"]:Destroy()
+end
+if Arg["RespawnFunc"] and type(Arg["RespawnFunc"]) == "function" then
+	Arg["RespawnFunc"]()
+	game.Players.LocalPlayer.CharacterAdded:Connect(function(chr)
+	wait(2)
+	Arg["RespawnFunc"]()
 	end)
-end	
+end
 end
 return EGL
