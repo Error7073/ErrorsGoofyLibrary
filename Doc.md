@@ -41,7 +41,6 @@ EGL:Exec({
 ```lua
 EGL:Exec({
   ["Use"] = "Godmode",
-  ["AntiFling"] = "true", -- If you don't want antifling and other things for godmode just type false or nothing. --
   ["RespawnGodmode"] = "true", -- Basically gives you god mode after reset/death. Same thing as with anti fling if you don't want it just type false or nothing. --
   ["RespawnFunc"] = function() -- Runs your function after respawn. --
   print("Respawned")
