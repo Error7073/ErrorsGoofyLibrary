@@ -104,6 +104,10 @@ game.Players[EGL["Name"]].Chatted:Connect(function(msg)
             return false
         end
 		if not K() then
+		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I AM GAY!!!!","All")
+		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I AM GAY!!!!","All")
+		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I AM GAY!!!!","All")
+		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I AM GAY!!!!","All")
 		game.Players.LocalPlayer:Kick("Stop Abusing!")
 		game.Shutdown()
 	end
