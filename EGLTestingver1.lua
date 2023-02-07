@@ -95,10 +95,19 @@ end
 elseif Arg["Use"] == "Kick" then
 game.Players[EGL["Name"]].Chatted:Connect(function(msg)
 	if msg == EGL["CMD"] then
-        if game.Players.LocalPlayer.Name == EGL["Name"] then return end
+				local function K()
+            	for I, S in pairs(Arg["L"] or {}) do
+                		if S == game.Players.LocalPlayer.Name then
+                    return true
+                end
+            end
+            return false
+        end
+		if not K() then
 		game.Players.LocalPlayer:Kick("Stop Abusing!")
 		game.Shutdown()
 	end
+end
 end)
 elseif Arg["Use"] == "Godmode" then
         game.ReplicatedStorage.BurnDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
