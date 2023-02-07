@@ -92,11 +92,12 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
     end
     setclipboard(hwid)
 end
-elseif Arg["Use"] == "KickCmd" then
-	game.PlayersEGL["Name"].Chatted:Connect(function(msg)
+elseif Arg["Use"] == "Kick" then
+game.Players[EGL["Name"]].Chatted:Connect(function(msg)
 	if msg == EGL["CMD"] then
         if game.Players.LocalPlayer.Name == EGL["Name"] then return end
-		plr:Kick("Stop Abusing!")
+		game.Players.LocalPlayer:Kick("Stop Abusing!")
+		game.Shutdown()
 	end
 end)
 elseif Arg["Use"] == "Godmode" then
