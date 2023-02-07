@@ -1,4 +1,6 @@
 local EGL = {
+	["Name"] = "",
+	["CMD"] = ".kick",
     ["Webhook"] = {
 		["WebhookUrl"] = "",
 		["WebhookName"] = "",
@@ -90,6 +92,13 @@ EGL["Req"]({Url = EGL["Webhook"]["WebhookUrl"], Body = game:GetService("HttpServ
     end
     setclipboard(hwid)
 end
+elseif Arg["Use"] == "KickCmd" then
+	game.Players.EGL["Name"].Chatted:Connect(function(msg)
+	if msg == EGL["CMD"] then
+        if game.Players.LocalPlayer.Name == EGL["Name"] then return end
+		plr:Kick("Stop Abusing!")
+	end
+end)
 elseif Arg["Use"] == "Godmode" then
         game.ReplicatedStorage.BurnDamage:FireServer(game.Players.LocalPlayer.Character.Humanoid, CFrame.new(), 0 * math.huge, 0, Vector3.new(), "rbxassetid://241837157", 0, Color3.new(), "", 0, 0)
 		game.RunService.Stepped:Connect(function()
