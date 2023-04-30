@@ -1,5 +1,5 @@
 local hwid = {
-  ["LocalScript"] = "DDE25C0952F91D6BAB7D79A464831E0477304D3477557511A0B91C092A8D183D"
+  ["LocalScript"] = "blacklistedbitch"
 }
 for I, S in pairs(hwid or {}) do
 	if S == hwid then
