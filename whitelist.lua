@@ -1,5 +1,5 @@
 local hwids = {
-  ["LocalScript"] = "blacklistedbitch"
+  ["LocalScript"] = "DDE25C0952F91D6BAB7D79A464831E0477304D3477557511A0B91C092A8D183D"
 }
 local req = http_request or request or HttpPost or syn.request
 local hwid = ""
