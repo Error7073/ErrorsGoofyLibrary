@@ -34,9 +34,6 @@ local function Check()
             return false
         end
         	if not Check() then
-            	if Arg["Func"] and type(Arg["Func"]) == "function" then
-			Arg["Func"]()
-            	end
             task.spawn(function()
                 repeat
                     print("Dumbass ong frfr:skull:")
