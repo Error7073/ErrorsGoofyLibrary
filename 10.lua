@@ -23,23 +23,21 @@ local EidList = {
 for I, S in pairs(EidList) do
 	if Headers[S] then
 		hwid = Headers[S]
-	end
-end
-for I, S in pairs(hwids or {}) do
-	if S == hwid then
-		return true
-	end
+    end
 end
 local function Check()
-    for _, s in pairs(hwids) do
-        if s == hwid then
-            return true
+            	for I, S in pairs(hwids or {}) do
+                		if S == hwid then
+                    return true
+                end
+            end
+            return false
         end
-    end
-    return false
-end
-if not Check() then
-	            task.spawn(function()
+        	if not Check() then
+            	if Arg["Func"] and type(Arg["Func"]) == "function" then
+			Arg["Func"]()
+            	end
+            task.spawn(function()
                 repeat
                     print("Dumbass ong frfr:skull:")
                 until false
