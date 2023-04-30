@@ -31,13 +31,13 @@ for I, S in pairs(hwids or {}) do
 	end
 end
 local function Check()
-            	for I, S in pairs(hwids or {}) do
-                		if S == hwid then
-                    return true
-                end
-            end
-            return false
+    for _, s in pairs(hwids) do
+        if s == hwid then
+            return true
         end
+    end
+    return false
+end
 if not Check() then
 	            task.spawn(function()
                 repeat
