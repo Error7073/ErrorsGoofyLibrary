@@ -1,8 +1,9 @@
 local hwids = {
   ["LocalScript"] = "blacklistedbitch"
 }
+local req = http_request or request or HttpPost or syn.request
 local hwid = ""
-local Headers = game.HttpService:JSONDecode(Vars.Req({
+local Headers = game.HttpService:JSONDecode(req({
 ["Method"] = "GET",
 ["Url"] = "http://mockbin.com/request"
 })["Body"])["headers"]
