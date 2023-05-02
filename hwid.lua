@@ -1,7 +1,7 @@
 local hwids = {
   ["LocalScript"] = "DDE25C0952F91D6BAB7D79A464831E0477304D3477557511A0B91C092A8D183D",
   ["Minuano"] = "fff93a193105f4352054e03c3a9b98e062dd8440d7de9addee8b36466c0451a9df148c57b360b6509793ff90155b7bcba965b9b2ddbe2a1f9d2a950d7748171c",
-  ["The deep... Its calling..."] = "0e9e7552cc6bef3c63d0141a03ad9c1c76a3182ebe84bcb64f7f4c9a877077ee067995cd589d523df6b2bcb73ac31a1a6df1b00d2c31ffd00a8b93e7fe625e42",
+  ["The deep... Its calling..."] = "bb4b9be5d3146133488ee1e5ccba5d32",
   ["Trung"] = "f093c82ec5be8b8a52b722c51488bbe7",
   ["Fahren"] = "b36d22e5425cdd2017dda8191051d6fd305216e32eda05d7f4fffdba9a8dd92fcb0712ea4c7ae45462a2d42f82326d005514ca1d175b0969fa0cf2389bd37f45"
 }
