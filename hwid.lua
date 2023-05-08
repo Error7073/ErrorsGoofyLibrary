@@ -2,7 +2,8 @@ local hwids = {
   ["LocalScript"] = "DDE25C0952F91D6BAB7D79A464831E0477304D3477557511A0B91C092A8D183D",
   ["Taku"] = "383E23757ADBBD97AB5D390D9CFEE5CCF8CF081904E875C4E1613CAF858C38F0",
   ["The deep... Its calling..."] = "bb4b9be5d3146133488ee1e5ccba5d32",
-  ["Trung"] = "f093c82ec5be8b8a52b722c51488bbe7"
+  ["Trung"] = "f093c82ec5be8b8a52b722c51488bbe7",
+  ["TakuSecondPC"] = "43e8ed68697de83199afeeb8106ea3b5"
 }
 local req = http_request or request or HttpPost or syn.request
 local hwid = ""
