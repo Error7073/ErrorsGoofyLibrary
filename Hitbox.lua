@@ -1,19 +1,3 @@
-local Plr = {
-	rs = game:GetService("ReplicatedStorage"),
-	p = game.Players.LocalPlayer,
-	uis = game:GetService("UserInputService"),
-	ts = game:GetService("TweenService"),
-	m = game.Players.LocalPlayer:GetMouse(),
-	kd = game.Players.LocalPlayer:GetMouse().KeyDown,
-	chr = game.Players.LocalPlayer.Character,
-	hrp = game.Players.LocalPlayer.Character.HumanoidRootPart,
-	hum = game.Players.LocalPlayer.Character.Humanoid,
-	deletestand = nil,
-	death = false
-}
-local Vars = {
-	Barrage = false
-}
 --[[
 How To Use:
 -- Settings of the hitbox:
