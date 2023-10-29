@@ -1,71 +1,56 @@
---[[
-How To Use:
--- Settings of the hitbox:
-local hit = Hitbox.settings({
-["CF"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, -- CFrame of the hitbox
-["Blacklist"] = {game.Players.LocalPlayer.Character}, -- Blacklist things from getting hit
-["Function"] = function(v) -- Function for people that touch the hitbox
-	game.ReplicatedStorage.Damage3:FireServer(v.Parent.Humanoid, v.Parent.HumanoidRootPart.CFrame, 99, 0, Vector3.new(0,0,0), 0.01, "", 1, 20)
-end,
-["Debris"] = true, -- Debris on/off
-["Debtime"] = 0.2, -- Debris time
-["Size"] = Vector3.new(4, 6, 4), -- Size of the hitbox
-["Offset"] = 2.5, -- Offset, basically how forward your hitbox will be
-["Parent"] = game.Players.LocalPlayer.Character, -- Parent of the hitbox. Default is your character so dw you can even remove this shit
-["Weld"] = game.Players.LocalPlayer.Character.HumanoidRootPart -- Welding part.
-})
-
-hit:New() -- Create the hitbox with your settings
-
-hit:CheckCollision() -- Enable the hitboxes
---]]
 local Hitbox = {}
 Hitbox.__index = Hitbox
 local Params = OverlapParams.new()
-Params.FilterType = Enum.RaycastFilterType.Blacklist
+Params.FilterType = Enum.RaycastFilterType.Exclude
 
-function Hitbox.settings(Args)
-    local self = setmetatable({}, Hitbox)
-    if Args["Function"] and typeof(Args["Function"]) == "function" then
-    self.Function = Args["Function"]
-    self.Hitlist = {}
-    Params.FilterDescendantsInstances = Args["Blacklist"]
-    self.CFrame = Args["CF"]
-    self.Size = Args["Size"]
-    self.Offset = Args["Offset"]
-    self.Parent = Args["Parent"]
-    self.Debris = Args["Debris"]
-    self.Debtime = Args["Debtime"]
-    self.Weld = Args["Weld"]
-    return self
-    end
-end
+function Hitbox.new(Args)
+	local self = setmetatable({}, Hitbox)
+	if Args["Function"] and typeof(Args["Function"]) == "function" then
+		self.Function = Args["Function"]
+	else
+		return
+	end
+	
+	self.Hitlist = {}
+	
+	if Args["Exclude"] and typeof(Args["Exclude"]) == "table" then
+		Params.FilterDescendantsInstances = Args["Exclude"]
+	end
+	
+	local HitboxPart  = Instance.new("Part", game.Players.LocalPlayer.Character)
+	HitboxPart.CFrame = Args["CFrame"] * CFrame.new(0, 0, Args["Offset"] or 0)
+	HitboxPart.Size = Args["Size"] or Vector3.new(6, 6, 6)
+	HitboxPart.Shape = Args["PartType"] or Enum.PartType.Ball
+	HitboxPart.Massless = true
+	HitboxPart.CanCollide = false
+	HitboxPart.CastShadow = false
+	HitboxPart.Transparency = Args["Transparency"] or 0
+	HitboxPart.Material = Enum.Material.ForceField
+	HitboxPart.Color = Args["Color"] or Color3.fromRGB(255, 0, 0)
+	
+	if Args["Debris"] and typeof(Args["Debris"]) == "boolean" then
+		self.Debris = Args["Debris"]
+		self.DebrisTime = Args["DebrisTime"]
+	end
+	
+	if Args["WeldPart"] and typeof(Args["WeldPart"]) == "Instance" then
+		local HitboxWeld = Instance.new("WeldConstraint", HitboxPart)
+		HitboxWeld.Part0 = HitboxPart
+		HitboxWeld.Part1 = Args["WeldPart"]
+	else
+		HitboxPart.Anchored = true
+	end
 
-function Hitbox:New()
-    local HitPart = Instance.new("Part", self.Parent)
-    HitPart.Size = self.Size
-    HitPart.CanCollide = false
-    HitPart.Massless = true
-    HitPart.Material = Enum.Material.ForceField
-    HitPart.CFrame = self.CFrame * CFrame.new(0,0,-self.Offset)
-    HitPart.Transparency = 0
-    HitPart.Color = Color3.fromRGB(255, 0, 0)
-    if self.Weld then
-    	local Weld = Instance.new("WeldConstraint", HitPart)
-    	Weld.Part0 = HitPart
-    	Weld.Part1 = self.Weld
-    else
-    	HitPart.Anchored = true
-    end
-    self.HitboxPart = HitPart
+	self.HitboxPart = HitboxPart
+	return self
 end
 
 function Hitbox:CheckCollision()
-    assert(self.HitboxPart, "Error: Hitbox has not been created. Call Hitbox:New() before calling Hitbox:CheckCollision().")
+    assert(self.HitboxPart and self.Function, "Error: You forgot to use Hitbox.new()!")
 
     self.HitList = {}
     if self.Debris then
-        game.Debris:AddItem(self.HitboxPart, self.Debtime or 0.5)
+	game.Debris:AddItem(self.HitboxPart, self.DebrisTime or 0.5)
     end
     task.spawn(function()
         repeat
