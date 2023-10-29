@@ -24,13 +24,6 @@ Hitbox.__index = Hitbox
 local Params = OverlapParams.new()
 Params.FilterType = Enum.RaycastFilterType.Blacklist
 
-local Part = nil
-for i,v in pairs(workspace:GetDescendants()) do
-    if v:FindFirstChild("Menacing") then
-		Part = v
-	end
-end
-
 function Hitbox.settings(Args)
     local self = setmetatable({}, Hitbox)
     if Args["Function"] and typeof(Args["Function"]) == "function" then
@@ -68,29 +61,31 @@ function Hitbox:New()
 end
 
 function Hitbox:CheckCollision()
-	self.HitList = {}
-		if self.Debris then
-		game.Debris:AddItem(self.HitboxPart, self.Debtime or 0.5)
-		end
-   		task.spawn(function()
-			repeat
-				wait()
-				local Parts = workspace:GetPartsInPart(self.HitboxPart, Params)
-					for i,v in pairs(Parts) do
-						if v.Parent:IsA("Model") and not table.find(self.Hitlist, v.Parent) then
-							if v.Parent:FindFirstChild("HumanoidRootPart") and v.Parent:FindFirstChild("Humanoid") then
-								task.spawn(function()
-								table.insert(self.Hitlist, v.Parent)
-								self.Function(v)
-							end)
-						end
-					end
-				end
-			if not self.Debris then
-				self.HitboxPart:Destroy()
-			end
-			until self.HitboxPart.Parent == nil
-		self.Hitlist = {}
-	end)
+    assert(self.HitboxPart, "Error: Hitbox has not been created. Call Hitbox:New() before calling Hitbox:CheckCollision().")
+
+    self.HitList = {}
+    if self.Debris then
+        game.Debris:AddItem(self.HitboxPart, self.Debtime or 0.5)
+    end
+    task.spawn(function()
+        repeat
+            wait()
+            local Parts = workspace:GetPartsInPart(self.HitboxPart, Params)
+            for i,v in pairs(Parts) do
+                if v.Parent:IsA("Model") and not table.find(self.Hitlist, v.Parent) then
+                    if v.Parent:FindFirstChild("HumanoidRootPart") and v.Parent:FindFirstChild("Humanoid") then
+                        task.spawn(function()
+                            table.insert(self.Hitlist, v.Parent)
+                            self.Function(v)
+                        end)
+                    end
+                end
+            end
+            if not self.Debris then
+                self.HitboxPart:Destroy()
+            end
+        until self.HitboxPart.Parent == nil
+        self.Hitlist = {}
+    end)
 end
 return Hitbox
