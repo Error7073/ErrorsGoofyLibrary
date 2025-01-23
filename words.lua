@@ -1,4 +1,4 @@
-{
+local t = {
   ["rape"] = "rap̣e",
 	["raped"] = "rap̣ed",
 	["Nigga"] = "Nı̇gga",
@@ -6,3 +6,5 @@
 	["fuck"] = "fนck",
 	["fucking"] = "fนcking"
 }
+
+return t
