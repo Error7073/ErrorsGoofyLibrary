@@ -4,8 +4,19 @@ local t = {
 	["Nigga"] = "Nı̇gga",
 	["Nigger"] = "Nı̇gger",
 	["fuck"] = "fนck",
+	["fucks"] = "fนcks",
+	["shit"] = "ѕһı̇t",
+	["Shit"] = "Sһı̇t",
+	["SHIT"] = "ṢHIT"
+	["Fuck"] = "Fนck",
+	["Fucks"] = "Fนcks",
 	["fucking"] = "fนcking",
-	["whore"] = "ẇhore"
+	["Fucking"] = "Fนcking",
+	["whore"] = "ẇhore",
+	["fucker"] = "fนcker",
+	["Fucker"] = "Fนcker",
+	["fuckers"] = "fนckers",
+	["Fuckers"] = "Fนckers",
 }
 
 return t
