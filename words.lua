@@ -8,6 +8,8 @@ local t = {
 	["shit"] = "ѕһı̇t",
 	["Shit"] = "Sһı̇t",
 	["SHIT"] = "ṢHIT",
+	["Sexy"] = "Ṣexy",
+	["SEXY"] = "ṢEXY",
 	["Fuck"] = "Fนck",
 	["Fucks"] = "Fนcks",
 	["fucking"] = "fนcking",
@@ -20,6 +22,7 @@ local t = {
 	["Fucker"] = "Fนcker",
 	["fuckers"] = "fนckers",
 	["Fuckers"] = "Fนckers",
+	["meth"] = "ṁeth"
 }
 
 return t
