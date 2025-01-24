@@ -1,10 +1,10 @@
 local t = {
     ["rape"] = "rap̣e",
 	["raped"] = "rap̣ed",
-	["nigga"] = "ทigga",
-	["nigger"] = "ทigger",
-	["niggas"] = "ทiggas",
-	["niggers"] = "ทiggers",
+	["Nigga"] = "Nı̇gga",
+	["Nigger"] = "Nı̇gger",
+	["Niggas"] = "Nı̇ggas",
+	["Niggers"] = "Nı̇ggers",
 	["fuck"] = "fนck",
 	["fucks"] = "fนcks",
 	["shit"] = "ѕһı̇t",
@@ -40,5 +40,6 @@ local t = {
 	["Hitler"] = "Hitӏer",
 	["hitler"] = "һitӏer",
 }
+
 
 return t
