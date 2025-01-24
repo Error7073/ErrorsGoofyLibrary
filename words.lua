@@ -1,8 +1,10 @@
 local t = {
     ["rape"] = "rap̣e",
 	["raped"] = "rap̣ed",
-	["Nigga"] = "Nı̇gga",
-	["Nigger"] = "Nı̇gger",
+	["nigga"] = "ทigga",
+	["nigger"] = "ทigger",
+	["niggas"] = "ทiggas",
+	["niggers"] = "ทiggers",
 	["fuck"] = "fนck",
 	["fucks"] = "fนcks",
 	["shit"] = "ѕһı̇t",
@@ -22,7 +24,14 @@ local t = {
 	["Fucker"] = "Fนcker",
 	["fuckers"] = "fนckers",
 	["Fuckers"] = "Fนckers",
-	["meth"] = "ṁeth"
+	["cum"] = "cนm",
+	["CUM"] = "ĊUM",
+	["ASS"] = "ẠSS",
+	["meth"] = "ṁeth",
+	["bitch"] = "bı̇tch",
+	["Bitch"] = "Bı̇tch",
+	["Hitler"] = "Hitӏer",
+	["hitler"] = "һitӏer",
 }
 
 return t
