@@ -38,6 +38,8 @@ local t = {
 	["Bitch"] = "Bı̇tch",
 	["Hitler"] = "Hitӏer",
 	["hitler"] = "һitӏer",
+	["dick"] = "dı̇ck",
+	["Dick"] = "Dı̇ck",
 }
 
 return t
