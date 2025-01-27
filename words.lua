@@ -8,6 +8,10 @@ local t = {
 	["fucks"] = "fนcks",
 	["shit"] = "ѕһı̇t",
 	["Shit"] = "Sһı̇t",
+	["faggot"] = "fag̱got",
+	["fag"] = "fag̱",
+	["Faggot"] = "Fagg̱ot",
+	["Fag"] = "Fag̱",
 	["SHIT"] = "ṢHIT",
 	["Sexy"] = "Ṣexy",
 	["SEXY"] = "ṢEXY",
@@ -41,5 +45,4 @@ local t = {
 	["dick"] = "dı̇ck",
 	["Dick"] = "Dı̇ck",
 }
-
 return t
