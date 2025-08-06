@@ -11,8 +11,6 @@ function Hitbox.new(Args)
 		return
 	end
 	
-	self.Hitlist = {}
-	
 	if Args["Exclude"] and typeof(Args["Exclude"]) == "table" then
 		Params.FilterDescendantsInstances = Args["Exclude"]
 	end
@@ -27,6 +25,9 @@ function Hitbox.new(Args)
 	HitboxPart.Transparency = Args["Transparency"] or 0
 	HitboxPart.Material = Enum.Material.ForceField
 	HitboxPart.Color = Args["Color"] or Color3.fromRGB(255, 0, 0)
+	HitboxPart.Name  "skibidi"..math.random(1, 99999)
+
+	self.Hitlist[HitboxPart.Name] = {}
 	
 	if Args["Debris"] and typeof(Args["Debris"]) == "boolean" then
 		self.Debris = Args["Debris"]
@@ -48,7 +49,6 @@ end
 function Hitbox:CheckCollision()
     assert(self.HitboxPart and self.Function, "Error: You forgot to use Hitbox.new()!")
 
-    self.HitList = {}
     if self.Debris then
 	game.Debris:AddItem(self.HitboxPart, self.DebrisTime or 0.5)
     end
@@ -61,7 +61,7 @@ function Hitbox:CheckCollision()
                     if v.Parent:FindFirstChild("HumanoidRootPart") and v.Parent:FindFirstChild("Humanoid") then
                         task.spawn(function()
                             table.insert(self.Hitlist, v.Parent)
-                            self.Function(v)
+                            self.Function(v.Parent)
                         end)
                     end
                 end
@@ -70,7 +70,7 @@ function Hitbox:CheckCollision()
                 self.HitboxPart:Destroy()
             end
         until self.HitboxPart.Parent == nil
-        self.Hitlist = {}
+        self.HitList[self.HitboxPart.Name] = {}
     end)
 end
 return Hitbox
