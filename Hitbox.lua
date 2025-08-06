@@ -60,7 +60,7 @@ function Hitbox:CheckCollision()
                 if v.Parent:IsA("Model") and not table.find(self.Hitlist, v.Parent) then
                     if v.Parent:FindFirstChild("HumanoidRootPart") and v.Parent:FindFirstChild("Humanoid") then
                         task.spawn(function()
-                            table.insert(self.Hitlist, v.Parent)
+                            table.insert(self.Hitlist[self.HitboxPart.Name], v.Parent)
                             self.Function(v.Parent)
                         end)
                     end
