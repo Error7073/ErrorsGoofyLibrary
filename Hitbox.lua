@@ -25,7 +25,7 @@ function Hitbox.new(Args)
 	HitboxPart.Transparency = Args["Transparency"] or 0
 	HitboxPart.Material = Enum.Material.ForceField
 	HitboxPart.Color = Args["Color"] or Color3.fromRGB(255, 0, 0)
-	HitboxPart.Name  "skibidi"..math.random(1, 99999)
+	HitboxPart.Name = math.random(1, 999999999)
 
 	self.Hitlist[HitboxPart.Name] = {}
 	
